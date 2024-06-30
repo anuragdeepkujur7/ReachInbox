@@ -1,10 +1,7 @@
 const nodemailer= require ('nodemailer');
 const {google}= require('googleapis');
 
-const CLIENT_ID='944425912607-dsr668gqoclr22tnvs2rt6qtvjfjkr1n.apps.googleusercontent.com';
-const CLIENT_SECRET='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';
-const REDIRECT_URI='https://developers.google.com/oauthplayground';
-const REFRESH_TOKEN='1//04M-tHOoYTyn2CgYIARAAGAQSNwF-L9Ir558QkIT47i9Pz4_5K8kkbgmCeaYRNSxzCs_bxd2kShqJQztzXCJN--fK6tcBdxvRcY0';
+
 
 const oAuth2Client= new google.auth.OAuth2(CLIENT_ID,CLIENT_SECRET,REDIRECT_URI);
 oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
@@ -29,7 +26,7 @@ async function sendMail(){
             to: 'adkujur.mtech2021.it@nitrr.ac.in',
             subject:" Hello from gmail api",
             text:'Hello Myself',
-            html:'<h1>HEllo myself</h1',
+            html:'<h1>HEllo myself</h1>',
         };
         const result=await transport.sendMail(mailOptions);
         return result;
